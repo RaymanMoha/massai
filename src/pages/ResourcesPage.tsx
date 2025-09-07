@@ -12,6 +12,7 @@ import {
   Divider,
 } from '@mui/material';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import {
   TrendingUp,
   People,
@@ -28,6 +29,7 @@ import {
 const ResourcesPage: React.FC = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const navigate = useNavigate();
 
   return (
     <Box>
@@ -54,7 +56,7 @@ const ResourcesPage: React.FC = () => {
               sx={{
                 textAlign: 'center',
                 mb: 3,
-                background: theme.palette.gradient.primary,
+                background: 'linear-gradient(135deg, #000000 0%, #333333 100%)',
                 backgroundClip: 'text',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
@@ -95,7 +97,7 @@ const ResourcesPage: React.FC = () => {
               <Chip 
                 label="Mass.AI - Scaling African Innovation Through Smarter Automation"
                 sx={{ 
-                  background: theme.palette.gradient.primary,
+                  background: 'linear-gradient(135deg, #000000 0%, #333333 100%)',
                   color: 'white',
                   fontWeight: 600,
                   px: 2,
@@ -120,7 +122,7 @@ const ResourcesPage: React.FC = () => {
               variant="h2"
               sx={{
                 mb: 6,
-                background: theme.palette.gradient.primary,
+                background: 'linear-gradient(135deg, #000000 0%, #333333 100%)',
                 backgroundClip: 'text',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
@@ -179,7 +181,7 @@ const ResourcesPage: React.FC = () => {
             sx={{
               mb: 6,
               textAlign: 'center',
-              background: theme.palette.gradient.primary,
+              background: 'linear-gradient(135deg, #000000 0%, #333333 100%)',
               backgroundClip: 'text',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
@@ -310,7 +312,7 @@ const ResourcesPage: React.FC = () => {
             sx={{
               mb: 6,
               textAlign: 'center',
-              background: theme.palette.gradient.primary,
+              background: 'linear-gradient(135deg, #000000 0%, #333333 100%)',
               backgroundClip: 'text',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
@@ -325,6 +327,28 @@ const ResourcesPage: React.FC = () => {
               The African AI job market is projected to grow by <strong>45% annually</strong> through 2030. 
               Mass.AI AIR helps you navigate these opportunities and build the skills needed for success.
             </Typography>
+
+            {/* Success Animation */}
+            <motion.div
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <Box
+                component="img"
+                src="/dazzle-success.gif"
+                alt="AI Career Success"
+                sx={{
+                  width: { xs: '180px', md: '220px' },
+                  height: { xs: '140px', md: '170px' },
+                  objectFit: 'contain',
+                  mx: 'auto',
+                  display: 'block',
+                  borderRadius: '12px',
+                }}
+              />
+            </motion.div>
           </Box>
 
           <Box
@@ -407,7 +431,7 @@ const ResourcesPage: React.FC = () => {
                           width: 50,
                           height: 50,
                           borderRadius: '50%',
-                          background: theme.palette.gradient.primary,
+                          background: 'linear-gradient(135deg, #000000 0%, #333333 100%)',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
@@ -466,7 +490,7 @@ const ResourcesPage: React.FC = () => {
                 variant="h2"
                 sx={{
                   mb: 4,
-                  background: theme.palette.gradient.primary,
+                  background: 'linear-gradient(135deg, #000000 0%, #333333 100%)',
                   backgroundClip: 'text',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
@@ -491,7 +515,7 @@ const ResourcesPage: React.FC = () => {
                   variant="contained"
                   size="large"
                   sx={{
-                    background: theme.palette.gradient.primary,
+                    background: 'linear-gradient(135deg, #000000 0%, #333333 100%)',
                     px: 4,
                     py: 1.5,
                   }}
@@ -525,7 +549,7 @@ const ResourcesPage: React.FC = () => {
       <Box
         sx={{
           py: { xs: 8, md: 12 },
-          background: theme.palette.gradient.primary,
+          background: 'linear-gradient(135deg, #000000 0%, #333333 100%)',
           color: 'white',
           textAlign: 'center',
         }}
@@ -567,6 +591,7 @@ const ResourcesPage: React.FC = () => {
               <Button
                 variant="contained"
                 size="large"
+                onClick={() => navigate('/contact')}
                 sx={{
                   backgroundColor: 'white',
                   color: theme.palette.primary.main,

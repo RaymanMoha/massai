@@ -8,93 +8,98 @@ import {
   useTheme,
 } from '@mui/material';
 import {
+  Instagram,
+  Facebook,
   LinkedIn,
   Twitter,
-  Facebook,
-  Email,
-  Phone,
-  LocationOn,
+  YouTube,
 } from '@mui/icons-material';
 
 const Footer: React.FC = () => {
   const theme = useTheme();
   const currentYear = new Date().getFullYear();
 
-  const footerLinks = [
+  const footerSections = [
     {
-      title: 'Product',
+      title: 'About Mass.AI',
       links: [
-        { label: 'Features', href: '#features' },
-        { label: 'Pricing', href: '#pricing' },
-        { label: 'AI Dashboard', href: '#' },
-        { label: 'Training Hub', href: '#' },
+        { label: 'About Mass.AI', href: '#' },
+        { label: 'Our agencies', href: '#' },
+        { label: 'Our leadership', href: '#' },
+        { label: 'Mass.AI Global Services', href: '#' },
       ],
     },
     {
-      title: 'Company',
+      title: 'Our work',
       links: [
-        { label: 'About Us', href: '#vision' },
-        { label: 'Careers', href: '#' },
-        { label: 'Contact', href: '#' },
+        { label: 'Our work', href: '#' },
+      ],
+    },
+    {
+      title: 'Specialized Practices',
+      links: [
+        { label: 'Mass.AI BX (Business Transformation)', href: '#' },
+        { label: 'Mass.AI entertainment', href: '#' },
+        { label: 'Mass.AI gaming', href: '#' },
+        { label: 'Mass.AI health', href: '#' },
+        { label: 'Identity Solutions', href: '#' },
+        { label: 'AI Maturity Assessment', href: '#' },
+        { label: 'Mass.AI B2B', href: '#' },
+      ],
+    },
+    {
+      title: 'Our thinking',
+      links: [
+        { label: 'Our latest thinking', href: '#' },
         { label: 'Blog', href: '#' },
+        { label: 'Sustainability', href: '#' },
+        { label: 'Media & Investors', href: '#' },
       ],
     },
     {
-      title: 'Support',
+      title: 'Additional Links',
       links: [
-        { label: 'Help Center', href: '#' },
-        { label: 'Documentation', href: '#' },
-        { label: 'API Reference', href: '#' },
-        { label: 'Status', href: '#' },
-      ],
-    },
-    {
-      title: 'Legal',
-      links: [
-        { label: 'Privacy Policy', href: '#' },
-        { label: 'Terms of Service', href: '#' },
-        { label: 'Cookie Policy', href: '#' },
-        { label: 'Data Protection', href: '#' },
+        { label: 'Careers', href: '#' },
+        { label: 'Contact us', href: '#' },
+        { label: 'Our policies', href: '#' },
+        { label: 'Privacy notices', href: '#' },
+        { label: 'Cookie notice', href: '#' },
+        { label: 'Contact', href: '#' },
+        { label: 'Sitemap', href: '#' },
       ],
     },
   ];
 
   const socialLinks = [
-    { icon: <LinkedIn />, href: '#', label: 'LinkedIn' },
-    { icon: <Twitter />, href: '#', label: 'Twitter' },
-    { icon: <Facebook />, href: '#', label: 'Facebook' },
+    { icon: <Instagram />, href: 'https://www.instagram.com/massai_air/', label: 'Instagram' },
+    { icon: <Facebook />, href: 'https://www.facebook.com/massaiair', label: 'Facebook' },
+    { icon: <LinkedIn />, href: 'https://www.linkedin.com/company/massai/', label: 'LinkedIn' },
+    { icon: <Twitter />, href: 'https://twitter.com/massai_global', label: 'Twitter' },
+    { icon: <YouTube />, href: 'https://www.youtube.com/channel/massaiair', label: 'YouTube' },
   ];
 
   return (
     <Box
       component="footer"
       sx={{
-        background: `linear-gradient(135deg, 
-          rgba(26, 32, 44, 0.95) 0%, 
-          rgba(45, 55, 72, 0.95) 100%)`,
-        color: 'white',
-        pt: { xs: 6, md: 8 },
+        backgroundColor: '#000000',
+        color: '#ffffff',
+        pt: { xs: 6, md: 10 },
         pb: { xs: 4, md: 6 },
         position: 'relative',
-        overflow: 'hidden',
-      }}
-    >
-      {/* Background Pattern */}
-      <Box
-        sx={{
+        '&::before': {
+          content: '""',
           position: 'absolute',
           top: 0,
           left: 0,
           right: 0,
-          bottom: 0,
-          backgroundImage: `
-            radial-gradient(circle at 20% 20%, rgba(33, 150, 243, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 80% 80%, rgba(233, 30, 99, 0.1) 0%, transparent 50%)
-          `,
-        }}
-      />
-
-      <Container maxWidth="xl" sx={{ position: 'relative', zIndex: 1 }}>
+          height: 8,
+          backgroundColor: '#00AEEF',
+          clipPath: 'polygon(0 0, calc(100% - 20px) 0, 100% 100%, 20px 100%)',
+        },
+      }}
+    >
+      <Container maxWidth="xl">
         {/* Main Footer Content */}
         <Box
           sx={{
@@ -103,122 +108,55 @@ const Footer: React.FC = () => {
               xs: '1fr',
               sm: 'repeat(2, 1fr)',
               md: 'repeat(3, 1fr)',
-              lg: '2fr repeat(4, 1fr)',
+              lg: 'repeat(5, 1fr)',
             },
             gap: { xs: 4, md: 6 },
-            mb: { xs: 4, md: 6 },
+            mb: { xs: 6, md: 8 },
           }}
         >
-          {/* Company Info */}
-          <Box>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
-              <img
-                src="/logomassai.png"
-                alt="Massai AIR Logo"
-                style={{
-                  height: '40px',
-                  width: 'auto',
-                  filter: 'brightness(0) invert(1)', // Makes logo white for dark footer
-                }}
-              />
-              <Typography
-                variant="h5"
-                sx={{
-                  fontWeight: 800,
-                  background: theme.palette.gradient.primary,
-                  backgroundClip: 'text',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                }}
-              >
-                Massai AIR
-              </Typography>
-            </Box>
-            
-            <Typography
-              variant="body2"
-              sx={{
-                mb: 3,
-                color: 'rgba(255, 255, 255, 0.8)',
-                lineHeight: 1.7,
-              }}
-            >
-              Empowering Kenya's businesses with accessible AI technology. 
-              Transform your organization and drive innovation with confidence.
-            </Typography>
-
-            {/* Contact Info */}
-            <Box sx={{ mb: 3 }}>
-              <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                <Email sx={{ fontSize: 16, mr: 1, color: theme.palette.primary.main }} />
-                <Typography variant="body2" sx={{ color: 'rgba(255, 255, 255, 0.8)' }}>
-                  hello@massaiair.co.ke
-                </Typography>
-              </Box>
-              <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                <Phone sx={{ fontSize: 16, mr: 1, color: theme.palette.primary.main }} />
-                <Typography variant="body2" sx={{ color: 'rgba(255, 255, 255, 0.8)' }}>
-                  +254 700 123 456
-                </Typography>
-              </Box>
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <LocationOn sx={{ fontSize: 16, mr: 1, color: theme.palette.primary.main }} />
-                <Typography variant="body2" sx={{ color: 'rgba(255, 255, 255, 0.8)' }}>
-                  Nairobi, Kenya
-                </Typography>
-              </Box>
-            </Box>
-
-            {/* Social Links */}
-            <Box sx={{ display: 'flex', gap: 1 }}>
-              {socialLinks.map((social) => (
-                <IconButton
-                  key={social.label}
-                  href={social.href}
-                  sx={{
-                    color: 'rgba(255, 255, 255, 0.7)',
-                    '&:hover': {
-                      color: theme.palette.primary.main,
-                      transform: 'translateY(-2px)',
-                    },
-                    transition: 'all 0.3s ease-in-out',
-                  }}
-                  aria-label={social.label}
-                >
-                  {social.icon}
-                </IconButton>
-              ))}
-            </Box>
-          </Box>
-
-          {/* Footer Links */}
-          {footerLinks.map((section) => (
+          {footerSections.map((section) => (
             <Box key={section.title}>
               <Typography
                 variant="h6"
                 sx={{
-                  mb: 2,
-                  fontWeight: 600,
-                  color: 'white',
+                  mb: 3,
+                  fontSize: '1rem',
+                  fontWeight: 700,
+                  color: '#FFFFFF',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.05em',
+                  position: 'relative',
+                  '&::after': {
+                    content: '""',
+                    position: 'absolute',
+                    bottom: -8,
+                    left: 0,
+                    width: 40,
+                    height: 3,
+                    backgroundColor: '#00AEEF',
+                    clipPath: 'polygon(0 0, calc(100% - 4px) 0, 100% 100%, 4px 100%)',
+                  },
                 }}
               >
                 {section.title}
               </Typography>
               
-              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
                 {section.links.map((link) => (
                   <Link
                     key={link.label}
                     href={link.href}
                     sx={{
-                      color: 'rgba(255, 255, 255, 0.7)',
+                      color: '#cccccc',
                       textDecoration: 'none',
                       fontSize: '0.9rem',
+                      lineHeight: 1.4,
+                      fontWeight: 500,
+                      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                       '&:hover': {
-                        color: theme.palette.primary.main,
-                        textDecoration: 'none',
+                        color: '#00AEEF',
+                        transform: 'translateX(4px)',
                       },
-                      transition: 'color 0.3s ease-in-out',
                     }}
                   >
                     {link.label}
@@ -229,78 +167,128 @@ const Footer: React.FC = () => {
           ))}
         </Box>
 
+        {/* Social Media Links */}
+        <Box
+          sx={{
+            display: 'flex',
+            gap: 3,
+            mb: { xs: 4, md: 6 },
+            justifyContent: { xs: 'center', md: 'flex-start' },
+            flexWrap: 'wrap',
+          }}
+        >
+          {socialLinks.map((social) => (
+            <Box
+              key={social.label}
+              sx={{
+                backgroundColor: '#ffffff',
+                border: '2px solid #ffffff',
+                borderRadius: 0,
+                p: 1.5,
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                cursor: 'pointer',
+                '&:hover': {
+                  backgroundColor: '#00AEEF',
+                  borderColor: '#00AEEF',
+                  transform: 'translate(-2px, -2px)',
+                  boxShadow: '2px 2px 0px #ffffff',
+                },
+              }}
+            >
+              <Link
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  color: '#000000',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  textDecoration: 'none',
+                  '&:hover': {
+                    color: '#ffffff',
+                  },
+                }}
+              >
+                {social.icon}
+              </Link>
+            </Box>
+          ))}
+        </Box>
+
         {/* Bottom Section */}
         <Box
           sx={{
             pt: { xs: 3, md: 4 },
-            borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+            borderTop: '3px solid #333333',
             display: 'flex',
             flexDirection: { xs: 'column', md: 'row' },
             justifyContent: 'space-between',
-            alignItems: 'center',
-            gap: 2,
+            alignItems: { xs: 'center', md: 'flex-start' },
+            gap: 3,
           }}
         >
-          <Typography
-            variant="body2"
-            sx={{
-              color: 'rgba(255, 255, 255, 0.6)',
-              textAlign: { xs: 'center', md: 'left' },
-            }}
-          >
-            © {currentYear} Massai AIR. All rights reserved. Made with ❤️ in Kenya.
-          </Typography>
+          {/* Logo and Copyright */}
+          <Box sx={{ textAlign: { xs: 'center', md: 'left' } }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2, justifyContent: { xs: 'center', md: 'flex-start' } }}>
+              <Typography
+                variant="h5"
+                sx={{
+                  fontWeight: 900,
+                  color: '#FFFFFF',
+                  fontSize: '1.5rem',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.05em',
+                }}
+              >
+                Mass.AI
+              </Typography>
+            </Box>
+            
+            <Typography
+              variant="body2"
+              sx={{
+                color: '#cccccc',
+                fontSize: '0.875rem',
+                fontWeight: 500,
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em',
+              }}
+            >
+              © {currentYear} Mass.AI. All rights reserved.
+            </Typography>
+          </Box>
 
+          {/* Additional Links */}
           <Box
             sx={{
               display: 'flex',
-              gap: 3,
+              gap: 4,
               flexWrap: 'wrap',
               justifyContent: { xs: 'center', md: 'flex-end' },
             }}
           >
-            <Link
-              href="#"
-              sx={{
-                color: 'rgba(255, 255, 255, 0.6)',
-                textDecoration: 'none',
-                fontSize: '0.85rem',
-                '&:hover': {
-                  color: theme.palette.primary.main,
-                },
-                transition: 'color 0.3s ease-in-out',
-              }}
-            >
-              Privacy
-            </Link>
-            <Link
-              href="#"
-              sx={{
-                color: 'rgba(255, 255, 255, 0.6)',
-                textDecoration: 'none',
-                fontSize: '0.85rem',
-                '&:hover': {
-                  color: theme.palette.primary.main,
-                },
-                transition: 'color 0.3s ease-in-out',
-              }}
-            >
-              Terms
-            </Link>
-            <Link
-              href="#"
-              sx={{
-                color: 'rgba(255, 255, 255, 0.6)',
-                textDecoration: 'none',
-                fontSize: '0.85rem',
-                '&:hover': {
-                  color: theme.palette.primary.main,
-                },
-                transition: 'color 0.3s ease-in-out',
-              }}
-            >
-              Sitemap
-            </Link>
+            {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((linkText) => (
+              <Link
+                key={linkText}
+                href="#"
+                sx={{
+                  color: '#cccccc',
+                  textDecoration: 'none',
+                  fontSize: '0.875rem',
+                  fontWeight: 600,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.05em',
+                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                  '&:hover': {
+                    color: '#00AEEF',
+                    transform: 'translateY(-2px)',
+                  },
+                }}
+              >
+                {linkText}
+              </Link>
+            ))}
           </Box>
         </Box>
       </Container>

@@ -9,10 +9,12 @@ import {
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import { PlayArrow, TrendingUp, Security } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
 const HeroSection: React.FC = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const navigate = useNavigate();
 
   const scrollToPricing = () => {
     const element = document.getElementById('pricing');
@@ -166,7 +168,7 @@ const HeroSection: React.FC = () => {
                     <Button
                       variant="contained"
                       size="large"
-                      onClick={scrollToPricing}
+                      onClick={() => navigate('/contact')}
                       startIcon={<PlayArrow />}
                       sx={{
                         fontSize: '1.1rem',
@@ -290,7 +292,7 @@ const HeroSection: React.FC = () => {
                     src="/ai2.jpg"
                     alt="AI Technology Dashboard"
                     sx={{
-                      width: '100%',
+                      width: '150%',
                       height: '100%',
                       objectFit: 'cover',
                       borderRadius: '16px',

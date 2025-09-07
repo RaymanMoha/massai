@@ -5,318 +5,492 @@ import {
   Typography,
   useTheme,
   useMediaQuery,
+  Button,
+  Card,
+  CardContent,
 } from '@mui/material';
 import { motion } from 'framer-motion';
-import { TrendingUp, People, Lightbulb } from '@mui/icons-material';
+import {
+  TrendingUp,
+  Insights,
+  Psychology,
+  AutoAwesome,
+} from '@mui/icons-material';
 
 const VisionSection: React.FC = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
+  const insights = [
+    {
+      icon: <Psychology />,
+      category: 'AI Strategy',
+      title: 'The Future of Intelligent Business',
+      description: 'How African enterprises are leveraging AI to transform operations and drive sustainable growth.',
+      readTime: '5 min read',
+      featured: true,
+    },
+    {
+      icon: <TrendingUp />,
+      category: 'Innovation',
+      title: 'Digital Transformation Insights',
+      description: 'Key strategies for successful digital transformation in emerging markets.',
+      readTime: '4 min read',
+      featured: false,
+    },
+    {
+      icon: <AutoAwesome />,
+      category: 'Automation',
+      title: 'Smart Automation Solutions',
+      description: 'Implementing intelligent automation for maximum efficiency and impact.',
+      readTime: '6 min read',
+      featured: false,
+    },
+    {
+      icon: <Insights />,
+      category: 'Data Science',
+      title: 'Data-Driven Decision Making',
+      description: 'Unlock the power of data analytics for strategic business decisions.',
+      readTime: '7 min read',
+      featured: false,
+    },
+  ];
+
   return (
     <Box
       id="vision"
       sx={{
-        py: { xs: 8, md: 12 },
-        background: `linear-gradient(135deg, 
-          rgba(33, 150, 243, 0.02) 0%, 
-          rgba(255, 255, 255, 1) 50%, 
-          rgba(233, 30, 99, 0.02) 100%)`,
+        py: { xs: 10, md: 16 },
+        backgroundColor: '#ffffff',
         position: 'relative',
-        overflow: 'hidden',
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundImage: `
+            linear-gradient(90deg, rgba(0,0,0,0.01) 1px, transparent 1px),
+            linear-gradient(rgba(0,0,0,0.01) 1px, transparent 1px)
+          `,
+          backgroundSize: '60px 60px',
+          pointerEvents: 'none',
+        },
       }}
     >
-      {/* Background Elements */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: '20%',
-          left: '-10%',
-          width: '400px',
-          height: '400px',
-          background: 'radial-gradient(circle, rgba(33, 150, 243, 0.05) 0%, transparent 70%)',
-          borderRadius: '50%',
-          animation: 'float 6s ease-in-out infinite',
-        }}
-      />
-      <Box
-        sx={{
-          position: 'absolute',
-          bottom: '10%',
-          right: '-10%',
-          width: '300px',
-          height: '300px',
-          background: 'radial-gradient(circle, rgba(233, 30, 99, 0.05) 0%, transparent 70%)',
-          borderRadius: '50%',
-          animation: 'float 4s ease-in-out infinite reverse',
-        }}
-      />
-
-      <Container maxWidth="xl" sx={{ position: 'relative', zIndex: 1 }}>
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: { xs: 'column', md: 'row' },
-            alignItems: 'center',
-            gap: { xs: 6, md: 8 },
-          }}
+      <Container maxWidth="xl">
+        {/* Header Section */}
+        <motion.div
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
         >
-          {/* Vision Content */}
-          <Box sx={{ flex: 1, order: { xs: 2, md: 1 } }}>
-            <motion.div
-              initial={{ x: -50, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
+          <Box sx={{ mb: { xs: 8, md: 12 } }}>
+            {/* Overline */}
+            <Box
+              sx={{
+                display: 'inline-block',
+                backgroundColor: '#000000',
+                color: '#FFFFFF',
+                px: 3,
+                py: 1.5,
+                mb: 4,
+                fontSize: '0.875rem',
+                fontWeight: 600,
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                clipPath: 'polygon(0 0, calc(100% - 15px) 0, 100% 100%, 15px 100%)',
+              }}
             >
-              <Typography
-                variant="h2"
+              Our Promise
+            </Box>
+            
+            <Typography
+              variant="h2"
+              sx={{
+                fontSize: { xs: '3rem', md: '4.5rem', lg: '5.5rem' },
+                fontWeight: 900,
+                lineHeight: 0.9,
+                color: '#000000',
+                mb: 6,
+                textTransform: 'uppercase',
+                letterSpacing: '-0.02em',
+                fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+              }}
+            >
+              Innovating
+              <br />
+              <Box
+                component="span"
                 sx={{
-                  mb: 4,
-                  background: theme.palette.gradient.primary,
-                  backgroundClip: 'text',
+                  background: 'linear-gradient(90deg, #00AEEF 0%, #0099D4 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
-                  fontWeight: 700,
+                  position: 'relative',
+                  '&::after': {
+                    content: '""',
+                    position: 'absolute',
+                    bottom: -10,
+                    left: 0,
+                    width: '100%',
+                    height: 8,
+                    backgroundColor: '#00AEEF',
+                    clipPath: 'polygon(0 0, calc(100% - 20px) 0, 100% 100%, 20px 100%)',
+                  },
                 }}
               >
-                The Massai Vision: AI Leadership
-              </Typography>
-            </motion.div>
+                To Impact
+              </Box>
+            </Typography>
 
-            <motion.div
-              initial={{ x: -50, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
+            <Box
+              sx={{
+                backgroundColor: '#f8f9fa',
+                border: '3px solid #000000',
+                p: 4,
+                maxWidth: '600px',
+                position: 'relative',
+                '&::before': {
+                  content: '""',
+                  position: 'absolute',
+                  top: -3,
+                  right: -3,
+                  bottom: -3,
+                  left: -3,
+                  backgroundColor: '#00AEEF',
+                  zIndex: -1,
+                  transform: 'translate(8px, 8px)',
+                },
+              }}
             >
               <Typography
-                variant="h6"
                 sx={{
-                  mb: 4,
-                  color: theme.palette.text.secondary,
-                  lineHeight: 1.7,
+                  fontSize: { xs: '1rem', md: '1.125rem' },
+                  fontWeight: 500,
+                  lineHeight: 1.6,
+                  color: '#000000',
                 }}
               >
-                Named after the Maasai warriors known for their strategic thinking and community leadership, 
-                <strong> Massai AIR</strong> embodies the same principles in artificial intelligence. We're not just 
-                managing AI tools – we're building AI departments that are as strategic and people-focused as 
-                traditional HR departments.
+                We increase the potential for innovation to happen, creating experiences
+                that enrich every business across Africa.
               </Typography>
-            </motion.div>
-
-            <motion.div
-              initial={{ x: -50, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                  <Box
-                    sx={{
-                      width: 60,
-                      height: 60,
-                      borderRadius: '50%',
-                      background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.light} 100%)`,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    <TrendingUp sx={{ color: 'white', fontSize: 30 }} />
-                  </Box>
-                  <Box>
-                    <Typography variant="h6" sx={{ fontWeight: 600, mb: 0.5 }}>
-                      Strategic AI Adoption
-                    </Typography>
-                    <Typography variant="body2" sx={{ color: theme.palette.text.secondary }}>
-                      Like strategic HR planning, we help businesses adopt AI with long-term vision and immediate impact
-                    </Typography>
-                  </Box>
-                </Box>
-
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                  <Box
-                    sx={{
-                      width: 60,
-                      height: 60,
-                      borderRadius: '50%',
-                      background: `linear-gradient(135deg, ${theme.palette.secondary.main} 0%, ${theme.palette.secondary.light} 100%)`,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    <People sx={{ color: 'white', fontSize: 30 }} />
-                  </Box>
-                  <Box>
-                    <Typography variant="h6" sx={{ fontWeight: 600, mb: 0.5 }}>
-                      AI Team Building
-                    </Typography>
-                    <Typography variant="body2" sx={{ color: theme.palette.text.secondary }}>
-                      Foster collaboration between human teams and AI tools across Kenya's tech ecosystem
-                    </Typography>
-                  </Box>
-                </Box>
-
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                  <Box
-                    sx={{
-                      width: 60,
-                      height: 60,
-                      borderRadius: '50%',
-                      background: `linear-gradient(135deg, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    <Lightbulb sx={{ color: 'white', fontSize: 30 }} />
-                  </Box>
-                  <Box>
-                    <Typography variant="h6" sx={{ fontWeight: 600, mb: 0.5 }}>
-                      Innovation Excellence
-                    </Typography>
-                    <Typography variant="body2" sx={{ color: theme.palette.text.secondary }}>
-                      Drive breakthrough innovations that solve real African challenges
-                    </Typography>
-                  </Box>
-                </Box>
-              </Box>
-            </motion.div>
+            </Box>
           </Box>
+        </motion.div>
 
-          {/* Vision Illustration */}
-          <Box sx={{ flex: 1, order: { xs: 1, md: 2 } }}>
+        {/* Insights Cards Grid */}
+        <motion.div
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <Box
+            sx={{
+              display: 'grid',
+              gridTemplateColumns: {
+                xs: '1fr',
+                md: 'repeat(2, 1fr)',
+              },
+              gap: 4,
+              mb: 8,
+            }}
+          >
+            {/* Featured Card - Larger */}
             <motion.div
-              initial={{ x: 50, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
+              style={{ gridColumn: isMobile ? '1' : '1 / -1' }}
             >
-              <Box
+              <Card
                 sx={{
+                  height: '100%',
+                  background: '#ffffff',
+                  border: '4px solid #000000',
+                  borderRadius: 0,
+                  cursor: 'pointer',
                   position: 'relative',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
+                  overflow: 'hidden',
+                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                  '&::before': {
+                    content: '""',
+                    position: 'absolute',
+                    top: -4,
+                    right: -4,
+                    bottom: -4,
+                    left: -4,
+                    backgroundColor: '#00AEEF',
+                    zIndex: -1,
+                    transform: 'translate(12px, 12px)',
+                    transition: 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                  },
+                  '&:hover': {
+                    transform: 'translate(-8px, -8px)',
+                    '&::before': {
+                      transform: 'translate(20px, 20px)',
+                    },
+                  },
                 }}
               >
-                {/* Main Illustration Container */}
-                <Box
+                <CardContent sx={{ p: { xs: 4, md: 6 } }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 4 }}>
+                    <Box
+                      sx={{
+                        display: 'inline-block',
+                        backgroundColor: '#000000',
+                        color: '#FFFFFF',
+                        p: 2,
+                        clipPath: 'polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%)',
+                      }}
+                    >
+                      {insights[0].icon}
+                    </Box>
+                    <Box
+                      sx={{
+                        display: 'inline-block',
+                        backgroundColor: '#00AEEF',
+                        color: '#FFFFFF',
+                        px: 3,
+                        py: 1,
+                        fontSize: '0.875rem',
+                        fontWeight: 700,
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.05em',
+                        clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 100%, 8px 100%)',
+                      }}
+                    >
+                      Featured
+                    </Box>
+                  </Box>
+
+                  <Typography
+                    variant="h4"
+                    sx={{
+                      fontWeight: 900,
+                      color: '#000000',
+                      mb: 3,
+                      fontSize: { xs: '1.5rem', md: '2rem' },
+                      textTransform: 'uppercase',
+                      lineHeight: 1.1,
+                    }}
+                  >
+                    {insights[0].title}
+                  </Typography>
+
+                  <Typography
+                    sx={{
+                      color: '#333333',
+                      lineHeight: 1.6,
+                      mb: 4,
+                      fontSize: '1.125rem',
+                      fontWeight: 500,
+                    }}
+                  >
+                    {insights[0].description}
+                  </Typography>
+
+                  <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <Box
+                      sx={{
+                        display: 'inline-block',
+                        backgroundColor: '#f8f9fa',
+                        border: '2px solid #000000',
+                        color: '#000000',
+                        px: 3,
+                        py: 1,
+                        fontSize: '0.875rem',
+                        fontWeight: 600,
+                        textTransform: 'uppercase',
+                      }}
+                    >
+                      {insights[0].category}
+                    </Box>
+                    <Typography
+                      variant="body2"
+                      sx={{ 
+                        color: '#666666', 
+                        fontWeight: 700,
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.05em',
+                      }}
+                    >
+                      {insights[0].readTime}
+                    </Typography>
+                  </Box>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Regular Cards */}
+            {insights.slice(1).map((insight, index) => (
+              <motion.div
+                key={insight.title}
+                initial={{ y: 30, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6, delay: (index + 2) * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card
                   sx={{
-                    width: '100%',
-                    maxWidth: '500px',
-                    height: '400px',
-                    borderRadius: '30px',
-                    boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15)',
+                    height: '100%',
+                    background: '#ffffff',
+                    border: '3px solid #000000',
+                    borderRadius: 0,
+                    cursor: 'pointer',
                     position: 'relative',
-                    overflow: 'hidden',
+                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                    '&::before': {
+                      content: '""',
+                      position: 'absolute',
+                      top: -3,
+                      right: -3,
+                      bottom: -3,
+                      left: -3,
+                      backgroundColor: '#f8f9fa',
+                      zIndex: -1,
+                      transform: 'translate(8px, 8px)',
+                      transition: 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                    },
+                    '&:hover': {
+                      transform: 'translate(-4px, -4px)',
+                      '&::before': {
+                        transform: 'translate(12px, 12px)',
+                        backgroundColor: '#00AEEF',
+                      },
+                    },
                   }}
                 >
-                  {/* Background Image */}
-                  <Box
-                    component="img"
-                    src="/ai.jpg"
-                    alt="AI Innovation Team"
-                    sx={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      borderRadius: '30px',
-                    }}
-                  />
-                  
-                  {/* Overlay with gradient */}
-                  <Box
-                    sx={{
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      background: `linear-gradient(145deg, 
-                        rgba(33, 150, 243, 0.3) 0%, 
-                        rgba(255, 255, 255, 0.1) 50%,
-                        rgba(233, 30, 99, 0.3) 100%)`,
-                      borderRadius: '30px',
-                    }}
-                  />
+                  <CardContent sx={{ p: 4 }}>
+                    <Box sx={{ mb: 3 }}>
+                      <Box
+                        sx={{
+                          display: 'inline-block',
+                          backgroundColor: '#f8f9fa',
+                          border: '2px solid #000000',
+                          color: '#000000',
+                          p: 1.5,
+                        }}
+                      >
+                        {insight.icon}
+                      </Box>
+                    </Box>
 
-                  {/* Floating Network Nodes */}
-                  <Box
-                    sx={{
-                      position: 'absolute',
-                      top: '15%',
-                      left: '15%',
-                      width: '20px',
-                      height: '20px',
-                      background: 'rgba(255, 255, 255, 0.9)',
-                      borderRadius: '50%',
-                      animation: 'float 3s ease-in-out infinite',
-                      boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
-                      '&::after': {
-                        content: '""',
-                        position: 'absolute',
-                        top: '50%',
-                        left: '50%',
-                        width: '40px',
-                        height: '40px',
-                        border: `2px solid rgba(255, 255, 255, 0.6)`,
-                        borderRadius: '50%',
-                        transform: 'translate(-50%, -50%)',
-                        opacity: 0.7,
-                        animation: 'pulse 2s ease-in-out infinite',
-                      },
-                    }}
-                  />
-                  <Box
-                    sx={{
-                      position: 'absolute',
-                      bottom: '20%',
-                      right: '20%',
-                      width: '16px',
-                      height: '16px',
-                      background: 'rgba(233, 30, 99, 0.8)',
-                      borderRadius: '50%',
-                      animation: 'float 2.5s ease-in-out infinite reverse',
-                      boxShadow: '0 4px 20px rgba(233, 30, 99, 0.3)',
-                    }}
-                  />
-                  <Box
-                    sx={{
-                      position: 'absolute',
-                      top: '50%',
-                      right: '10%',
-                      width: '12px',
-                      height: '12px',
-                      background: 'rgba(33, 150, 243, 0.8)',
-                      borderRadius: '50%',
-                      animation: 'float 4s ease-in-out infinite',
-                      boxShadow: '0 4px 20px rgba(33, 150, 243, 0.3)',
-                    }}
-                  />
-                </Box>
-              </Box>
-            </motion.div>
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        fontWeight: 900,
+                        color: '#000000',
+                        mb: 2,
+                        lineHeight: 1.3,
+                        textTransform: 'uppercase',
+                        fontSize: '1.125rem',
+                      }}
+                    >
+                      {insight.title}
+                    </Typography>
+
+                    <Typography
+                      sx={{
+                        color: '#333333',
+                        lineHeight: 1.6,
+                        mb: 3,
+                        fontSize: '0.95rem',
+                        fontWeight: 500,
+                      }}
+                    >
+                      {insight.description}
+                    </Typography>
+
+                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <Box
+                        sx={{
+                          display: 'inline-block',
+                          backgroundColor: '#f8f9fa',
+                          border: '1px solid #000000',
+                          color: '#000000',
+                          px: 2,
+                          py: 0.5,
+                          fontSize: '0.75rem',
+                          fontWeight: 600,
+                          textTransform: 'uppercase',
+                        }}
+                      >
+                        {insight.category}
+                      </Box>
+                      <Typography
+                        variant="body2"
+                        sx={{ 
+                          color: '#666666', 
+                          fontWeight: 600,
+                          fontSize: '0.75rem',
+                          textTransform: 'uppercase',
+                        }}
+                      >
+                        {insight.readTime}
+                      </Typography>
+                    </Box>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </Box>
-        </Box>
-      </Container>
+        </motion.div>
 
-      <style>
-        {`
-          @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-          }
-          
-          @keyframes pulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
-            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.1; }
-          }
-        `}
-      </style>
+        {/* CTA Section */}
+        <motion.div
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <Box sx={{ textAlign: 'center' }}>
+            <Button
+              variant="contained"
+              size="large"
+              sx={{
+                fontSize: '1rem',
+                fontWeight: 700,
+                py: 3,
+                px: 8,
+                backgroundColor: '#000000',
+                color: '#FFFFFF',
+                borderRadius: 0,
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em',
+                border: '3px solid #000000',
+                position: 'relative',
+                overflow: 'hidden',
+                '&:hover': {
+                  backgroundColor: '#00AEEF',
+                  borderColor: '#00AEEF',
+                  transform: 'translate(-4px, -4px)',
+                  boxShadow: '4px 4px 0px #000000',
+                },
+                '&::after': {
+                  content: '""',
+                  position: 'absolute',
+                  top: 0,
+                  left: '-100%',
+                  width: '100%',
+                  height: '100%',
+                  background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)',
+                  transition: 'left 0.5s',
+                },
+                '&:hover::after': {
+                  left: '100%',
+                },
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+              }}
+            >
+              Discover More Insights →
+            </Button>
+          </Box>
+        </motion.div>
+      </Container>
     </Box>
   );
 };

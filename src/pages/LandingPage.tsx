@@ -3,10 +3,7 @@ import { Box } from '@mui/material';
 import {
   Navbar,
   HeroSection,
-  FeaturesSection,
-  VisionSection,
-  ImageGallery,
-  AITrainingHub,
+  GeometricShowcase,
   PricingSection,
   Footer,
 } from '../components';
@@ -16,10 +13,7 @@ const LandingPage: React.FC = () => {
     <Box>
       <Navbar />
       <HeroSection />
-      <FeaturesSection />
-      <VisionSection />
-      <ImageGallery />
-      <AITrainingHub />
+      <GeometricShowcase />
       <PricingSection />
       <Footer />
     </Box>
