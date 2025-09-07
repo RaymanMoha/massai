@@ -12,3 +12,5 @@ export { default as PricingSection } from './PricingSection';
 export { default as FAQSection } from './FAQSection';
 export { default as GeometricShowcase } from './GeometricShowcase';
 export { default as Footer } from './Footer';
+export { default as OptimizedImage } from './OptimizedImage';
+export { default as OptimizedGif } from './OptimizedGif';

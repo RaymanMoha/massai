@@ -10,6 +10,7 @@ import {
 } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Close, ArrowBack, ArrowForward } from '@mui/icons-material';
+import OptimizedImage from './OptimizedImage';
 
 interface ImageData {
   src: string;

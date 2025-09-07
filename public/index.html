@@ -12,9 +12,17 @@
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logomassai.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     
-    <!-- Google Fonts -->
+    <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://vercel.app">
+    <link rel="dns-prefetch" href="https://cdn.vercel.com">
+    
+    <!-- Critical resource hints -->
+    <link rel="preload" href="/ai2.jpg" as="image" type="image/jpeg">
+    <link rel="preload" href="/massai-logo.svg" as="image" type="image/svg+xml">
+    
+    <!-- Google Fonts with performance optimizations -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     
     <title>Massai AIR - AI Resources for Kenya</title>

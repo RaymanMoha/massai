@@ -10,6 +10,8 @@ import {
 import { motion } from 'framer-motion';
 import { ArrowForward } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
+import OptimizedImage from './OptimizedImage';
+import OptimizedGif from './OptimizedGif';
 
 const HeroSection: React.FC = () => {
   const theme = useTheme();
@@ -231,16 +233,17 @@ const HeroSection: React.FC = () => {
                       animate={{ x: 0, opacity: 1 }}
                       transition={{ duration: 0.8, delay: 0.9 }}
                     >
-                      <Box
-                        component="img"
+                      <OptimizedGif
                         src="/looney-arrow.gif"
                         alt="Start your transformation"
                         sx={{
                           width: { xs: '80px', md: '120px' },
                           height: { xs: '60px', md: '90px' },
-                          objectFit: 'contain',
                           display: { xs: 'none', md: 'block' }
                         }}
+                        autoPlay={true}
+                        playOnHover={false}
+                        priority={true}
                       />
                     </motion.div>
                   </Box>
@@ -326,10 +329,10 @@ const HeroSection: React.FC = () => {
                     },
                   }}
                 >
-                  <Box
-                    component="img"
+                  <OptimizedImage
                     src="/ai2.jpg"
                     alt="AI Innovation"
+                    priority={true}
                     sx={{
                       width: '680px',
                       height: '700px',

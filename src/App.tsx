@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
@@ -7,8 +7,19 @@ import LandingPage from './pages/LandingPage';
 import ShowcasePage from './pages/ShowcasePage';
 import ImageShowcasePage from './pages/ImageShowcasePage';
 import ContactForm from './pages/ContactForm';
+import { preloadImages, CRITICAL_IMAGES, observeImagePerformance } from './utils/imageOptimization';
 
 function App() {
+  useEffect(() => {
+    // Initialize performance monitoring
+    observeImagePerformance();
+    
+    // Preload critical images
+    preloadImages(CRITICAL_IMAGES).then(() => {
+      console.log('Critical images preloaded');
+    });
+  }, []);
+
   return (
     <ThemeProvider theme={dentsuTheme}>
       <CssBaseline />
